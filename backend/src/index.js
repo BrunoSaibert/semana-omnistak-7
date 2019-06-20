@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -8,7 +10,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-mongoose.connect('mongodb+srv://semana:S3m4n4@cluster0-yqhgc.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
 });
 
